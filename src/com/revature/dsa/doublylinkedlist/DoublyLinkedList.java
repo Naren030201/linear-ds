@@ -31,10 +31,24 @@ public class DoublyLinkedList<T> {
 	}
 	
 	public T get(int index) {
-		return null;
+		if (index >= size) {
+			return null;
+		}
+		Node<T> pointer = head;
+		for (int i = 0; i < index; i++) {
+			pointer = pointer.getNext();
+		}
+		return pointer.getData();
 	}
 	
 	public boolean contains(T data) {
+		Node<T> pointer=head;
+		for(int i=0;i<size;i++) {
+			if(pointer.getData().equals(data)) {
+				return true;
+			}
+			pointer=pointer.getNext();
+		}
 		return false;
 	}
 
